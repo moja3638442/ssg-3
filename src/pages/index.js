@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
+import {GatsbyImage } from "gatsby-plugin-image"
 
-export default () => (
+
+export default ({data}) => (
   <div>
   <meta charSet="UTF-8" />
   <meta name="viewport" content="width=device-width" />
@@ -26,7 +28,7 @@ export default () => (
   </header>
   <section className="hero">
     <figure>
-      <img src="images/hero.jpg" alt="" />
+      <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt="" />
     </figure>
     <div className="catch">
       <h1>There is no love sincerer than<br /> the love of food.</h1>
@@ -105,3 +107,13 @@ export default () => (
   </footer>
 </div>  
 )
+
+export const query = graphql`
+  query {
+    file(relativePath: {eq: "hero.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+  }
+`
