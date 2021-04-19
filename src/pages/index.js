@@ -28,7 +28,7 @@ export default ({data}) => (
   </header>
   <section className="hero">
     <figure>
-      <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt="" />
+      <GatsbyImage image={data.hero.childImageSharp.gatsbyImageData} alt="" />
     </figure>
     <div className="catch">
       <h1>There is no love sincerer than<br /> the love of food.</h1>
@@ -44,7 +44,7 @@ export default ({data}) => (
       <div className="details">
         <div className="detail">
           <figure>
-            <img src="images/fruit.jpg" alt="" />
+            <GatsbyImage image={data.fruit.childImageSharp.gatsbyImageData} alt="" />
           </figure>
           <h3>フルーツ</h3>
           <p>FRUIT</p>
@@ -52,7 +52,7 @@ export default ({data}) => (
         </div>
         <div className="detail">
           <figure>
-            <img src="images/grain.jpg" alt="" />
+            <GatsbyImage image={data.grain.childImageSharp.gatsbyImageData} alt="" />
           </figure>
           <h3>穀物</h3>
           <p>GRAIN</p>
@@ -60,7 +60,7 @@ export default ({data}) => (
         </div>
         <div className="detail">
           <figure>
-            <img src="images/beverage.jpg" alt="" />
+            <GatsbyImage image={data.beverage.childImageSharp.gatsbyImageData} alt="" />
           </figure>
           <h3>飲み物</h3>
           <p>BEVERAGE</p>
@@ -72,7 +72,7 @@ export default ({data}) => (
   <section className="photo">
     <h2 className="sr-only">Photo</h2>
     <figure>
-      <img src="images/berry.jpg" alt="赤く熟したベリー" />
+      <GatsbyImage image={data.berry.childImageSharp.gatsbyImageData} alt="" />
     </figure>
   </section>
   <footer className="footer">
@@ -110,7 +110,27 @@ export default ({data}) => (
 
 export const query = graphql`
   query {
-    file(relativePath: {eq: "hero.jpg"}) {
+    hero: file(relativePath: {eq: "hero.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    fruit: file(relativePath: {eq: "fruit.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    grain: file(relativePath: {eq: "grain.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    beverage: file(relativePath: {eq: "beverage.jpg"}) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    berry: file(relativePath: {eq: "berry.jpg"}) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
